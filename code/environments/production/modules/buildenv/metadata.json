@@ -1,0 +1,14 @@
+{
+  "name": "camptocamp-buildenv",
+  "version": "0.3.18",
+  "author": "Camptocamp",
+  "summary": "Camptocamp Buildenv Module",
+  "license": "Apache-2.0",
+  "source": "https://github.com/camptocamp/puppet-buildenv",
+  "project_page": "https://github.com/camptocamp/puppet-buildenv",
+  "issues_url": "https://github.com/camptocamp/puppet-buildenv/issues",
+  "description": "Buildenv Module for Puppet",
+  "dependencies": [
+
+  ]
+}

@@ -1,0 +1,5 @@
+.vagrant
+*.tfstate*
+terraform/.terraform/
+code/environments/production/hieradata/common.yaml
+terraform/.terraform.lock.hcl

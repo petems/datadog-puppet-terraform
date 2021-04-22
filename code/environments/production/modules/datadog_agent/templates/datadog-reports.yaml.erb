@@ -1,0 +1,26 @@
+### MANAGED BY PUPPET
+
+---
+:datadog_api_key: '<%= @api_key %>'
+:api_url: https://api.<%= @datadog_site %>
+<% if @hostname_extraction_regex -%>
+:hostname_extraction_regex: '<%= @hostname_extraction_regex %>'
+<% end -%>
+<% if @proxy_http -%>
+:proxy_http: <%= @proxy_http %>
+<% end -%>
+<% if @proxy_https -%>
+:proxy_https: <%= @proxy_https %>
+<% end -%>
+<% if @report_fact_tags -%>
+:report_fact_tags:
+<%- @report_fact_tags.each do |tag| -%>
+  - <%= tag %>
+  <%- end -%>
+<% end -%>
+<% if @report_trusted_fact_tags -%>
+:report_trusted_fact_tags:
+<%- @report_trusted_fact_tags.each do |tag| -%>
+  - <%= tag %>
+  <%- end -%>
+<% end -%>

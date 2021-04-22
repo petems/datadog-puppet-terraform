@@ -1,0 +1,38 @@
+### MANAGED BY PUPPET
+
+init_config:
+
+instances:
+<%- (Array(@_instances)).each do |instance| -%>
+  - host: <%= instance['host'] %>
+    port: <%= instance['port']  %>
+<% if instance['password']  and ! instance['password'].empty? -%>
+    password: <%= instance['password'] %>
+<% end -%>
+<% if instance['slowlog_max_len'] and ! instance['slowlog_max_len'].to_s.empty? -%>
+    # unix_socket_path: /var/run/redis/redis.sock # optional, can be used in lieu of host/port
+    slowlog-max-len: <%= instance['slowlog_max_len'] %>
+<% end -%>
+<% if !instance['warn_on_missing_keys'].nil? -%>
+    warn_on_missing_keys: <%= instance['warn_on_missing_keys'] %>
+<% end -%>
+<% if !instance['command_stats'].nil? -%>
+    command_stats: <%= instance['command_stats'] %>
+<% end -%>
+<% if instance['keys'] and ! instance['keys'].empty? -%>
+    keys:
+  <%- Array(instance['keys'] ).each do |key| -%>
+    <%- if key != '' -%>
+      - <%= key %>
+    <%- end -%>
+  <%- end -%>
+<% end -%>
+<% if instance['tags'] and ! instance['tags'].empty? -%>
+    tags:
+  <%- Array(instance['tags'] ).each do |tag| -%>
+    <%- if tag != '' -%>
+      - <%= tag %>
+    <%- end -%>
+  <%- end -%>
+<% end -%>
+<% end -%>

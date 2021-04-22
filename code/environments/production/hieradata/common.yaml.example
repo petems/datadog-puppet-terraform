@@ -1,0 +1,2 @@
+---
+datadog_agent::api_key: "CHANGE-ME"

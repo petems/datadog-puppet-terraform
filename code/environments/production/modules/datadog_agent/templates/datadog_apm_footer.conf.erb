@@ -1,0 +1,11 @@
+<% if not @apm_env.empty? -%>
+[trace.agent]
+env: <%= @apm_env %>
+<% end -%>
+
+<% if @apm_analyzed_spans -%>
+[trace.analyzed_spans]
+<% @apm_analyzed_spans.each do |span, value| -%>
+<%= span %>: <%= value %>
+<% end %>
+<% end -%>
